@@ -1,0 +1,7 @@
+cliente,edad,consumo_kwh,localidad
+1001,35,350,Capital
+1002,42,210,Banda
+1003,29,500,Termas
+1004,,420,Capital
+1005,50,390,Banda
+1006,31,,Termas
