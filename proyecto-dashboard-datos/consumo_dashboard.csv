@@ -1,0 +1,10 @@
+cliente,mes,consumo_kwh,localidad
+1001,Enero,350,Capital
+1002,Enero,210,Banda
+1003,Enero,500,Termas
+1001,Febrero,300,Capital
+1002,Febrero,190,Banda
+1003,Febrero,520,Termas
+1001,Marzo,400,Capital
+1002,Marzo,250,Banda
+1003,Marzo,600,Termas
