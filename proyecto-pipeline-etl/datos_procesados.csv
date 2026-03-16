@@ -1,0 +1,5 @@
+cliente,edad,consumo_kwh,localidad,consumo_anual
+1001,35.0,350.0,Capital,4200.0
+1002,42.0,210.0,Banda,2520.0
+1003,29.0,500.0,Termas,6000.0
+1005,50.0,390.0,Banda,4680.0
