@@ -1,0 +1,11 @@
+cliente_id,edad,ciudad,compras,valor_total
+1,25,Santiago,5,120
+2,40,Cordoba,10,500
+3,35,Buenos Aires,7,300
+4,28,Santiago,3,90
+5,50,Mendoza,12,650
+6,31,Cordoba,6,250
+7,45,Buenos Aires,9,480
+8,29,Santiago,4,110
+9,38,Mendoza,8,420
+10,33,Cordoba,5,200
