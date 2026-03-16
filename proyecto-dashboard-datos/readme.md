@@ -1,45 +1,35 @@
-\# Dashboard de Consumo Eléctrico
+# Dashboard de Consumo Eléctrico
 
+Aplicación web de análisis de consumo eléctrico desarrollada con Python y Streamlit.
 
+## Tecnologías utilizadas
 
-Aplicación web de análisis de datos desarrollada con Python y Streamlit.
+- Python
+- Pandas
+- Streamlit
+- Matplotlib
 
+## Funcionalidades
 
+- visualización de datos
+- análisis de consumo por localidad
+- análisis de consumo por mes
+- gráficos interactivos
 
-\## Objetivo
+## Ejecutar el proyecto
 
+Instalar dependencias:
 
+pip install -r requirements.txt
 
-Visualizar datos de consumo eléctrico mediante gráficos interactivos.
+Ejecutar aplicación:
 
+streamlit run dashboard.py
 
+## Autor
 
-\## Tecnologías utilizadas
-
-
-
-\- Python
-
-\- Pandas
-
-\- Streamlit
-
-
-
-\## Funcionalidades
-
-
-
-\- visualización de datos
-
-\- gráficos por localidad
-
-\- análisis de consumo por mes
-
-
-
-\## Ejecución
-
+Juan Pablo Contato
+Licenciado en Ciencias de Datos
 
 
 ```bash
