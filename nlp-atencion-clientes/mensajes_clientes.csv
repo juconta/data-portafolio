@@ -1,0 +1,10 @@
+mensaje,categoria
+"No puedo pagar mi factura",facturacion
+"Mi internet no funciona",problema_tecnico
+"Necesito información del servicio",consulta
+"La factura llegó muy alta",facturacion
+"El servicio se corta constantemente",problema_tecnico
+"Quiero saber los planes disponibles",consulta
+"No entiendo mi factura",facturacion
+"La conexión es muy lenta",problema_tecnico
+"Necesito hablar con soporte",consulta
