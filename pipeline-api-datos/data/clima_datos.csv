@@ -1,0 +1,8 @@
+ciudad,fecha,temperatura_c,velocidad_viento_kmh,direccion_viento,is_day
+Buenos Aires,2026-09-23T20:00,14.9,17.0,354,0
+Santiago,2026-09-23T20:00,18.5,4.8,228,0
+Bogotá,2026-09-23T18:00,18.0,2.6,254,0
+Ciudad de México,2026-09-23T17:00,23.8,8.2,109,1
+Lima,2026-09-23T18:00,21.5,13.7,157,1
+Quito,2026-09-23T18:00,12.8,3.9,106,1
+Montevideo,2026-09-23T20:00,12.6,18.9,3,0

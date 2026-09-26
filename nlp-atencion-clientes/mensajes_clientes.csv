@@ -1,10 +1,181 @@
 mensaje,categoria
-"No puedo pagar mi factura",facturacion
-"Mi internet no funciona",problema_tecnico
-"Necesito información del servicio",consulta
-"La factura llegó muy alta",facturacion
-"El servicio se corta constantemente",problema_tecnico
-"Quiero saber los planes disponibles",consulta
-"No entiendo mi factura",facturacion
-"La conexión es muy lenta",problema_tecnico
-"Necesito hablar con soporte",consulta
+Hace semanas que espero una solución por favor,reclamo
+Quiero descargar mi factura del mes pasado urgente,facturacion
+Estoy disconforme con la atención,reclamo
+No me devuelven el dinero que pagué por favor,reclamo
+Quiero cambiar mi plan actual gracias El servicio se corta constantemente,consulta
+Qué cobertura tienen en mi zona por favor,consulta
+Quiero cambiar mi plan actual gracias,consulta
+No puedo pagar mi factura gracias Dónde veo mi consumo al día,facturacion
+Me interesa contratar internet,consulta
+Estoy disconforme con la atención hoy Se cae la señal cuando llueve,reclamo
+Por qué me cobraron dos veces hoy,facturacion
+Quiero saber los planes disponibles urgente No puedo pagar mi factura,consulta
+Me cortaron el servicio injustamente,reclamo
+Dónde veo mi consumo al día Quiero descargar mi factura del mes pasado,consulta
+Mi internet no funciona urgente,problema_tecnico
+Dónde veo mi consumo al día hoy,consulta
+Qué cobertura tienen en mi zona urgente,consulta
+Estoy disconforme con la atención urgente Por qué me cobraron dos veces,reclamo
+La velocidad que tengo no es la contratada,problema_tecnico
+Mi internet no funciona gracias,problema_tecnico
+Se cae la señal cuando llueve hoy El técnico nunca llegó a mi casa,problema_tecnico
+Se cae la señal cuando llueve,problema_tecnico
+Necesito información del servicio urgente,consulta
+Me interesa contratar internet,consulta
+Necesito que me recalcularan el monto gracias,facturacion
+Exijo una respuesta por escrito hoy,reclamo
+El servicio se corta constantemente hoy,problema_tecnico
+Hace semanas que espero una solución gracias,reclamo
+Me cortaron el servicio injustamente por favor,reclamo
+Quiero cambiar mi plan actual por favor,consulta
+Me interesa contratar internet hoy Me cortaron el servicio injustamente,consulta
+No puedo pagar mi factura gracias,facturacion
+No me devuelven el dinero que pagué por favor,reclamo
+Qué cobertura tienen en mi zona gracias,consulta
+Cómo hago para mudar mi servicio gracias,consulta
+El servicio se corta constantemente,problema_tecnico
+El técnico nunca llegó a mi casa,reclamo
+Me cortaron el servicio injustamente urgente,reclamo
+Me llegó un cargo que no reconozco urgente,facturacion
+Hace semanas que espero una solución hoy,reclamo
+Me llegó un cargo que no reconozco urgente,facturacion
+Dónde veo mi consumo al día hoy,consulta
+Hace semanas que espero una solución urgente,reclamo
+Me cortaron el servicio injustamente gracias,reclamo
+Necesito información del servicio gracias,consulta
+Necesito que me recalcularan el monto hoy,facturacion
+Quiero descargar mi factura del mes pasado,facturacion
+La conexión es muy lenta hoy,problema_tecnico
+Se cae la señal cuando llueve hoy,problema_tecnico
+Mi módem parpadea en rojo urgente,problema_tecnico
+Necesito hablar con soporte urgente,consulta
+Quiero saber los planes disponibles por favor El servicio se corta constantemente,consulta
+Necesito que me recalcularan el monto,facturacion
+La factura llegó muy alta este mes urgente,facturacion
+Necesito que reinicien mi servicio urgente Quiero elevar una queja,problema_tecnico
+No tengo señal de wifi en casa urgente,problema_tecnico
+Quiero saber los planes disponibles urgente,consulta
+Mi módem parpadea en rojo hoy,problema_tecnico
+Quiero elevar una queja,reclamo
+El servicio se corta constantemente,problema_tecnico
+Quiero realizar un reclamo formal hoy,reclamo
+Necesito información del servicio gracias,consulta
+Estoy disconforme con la atención,reclamo
+No puedo pagar mi factura urgente,facturacion
+Quiero realizar un reclamo formal gracias,reclamo
+Qué cobertura tienen en mi zona,consulta
+El servicio se corta constantemente urgente,problema_tecnico
+No tengo señal de wifi en casa,problema_tecnico
+No entiendo mi factura,facturacion
+No tengo señal de wifi en casa por favor,problema_tecnico
+La factura llegó muy alta este mes urgente,facturacion
+Necesito que reinicien mi servicio por favor,problema_tecnico
+El técnico nunca llegó a mi casa por favor,reclamo
+El débito automático no me funcionó urgente,facturacion
+Exijo una respuesta por escrito hoy,reclamo
+Necesito información del servicio hoy,consulta
+El servicio se corta constantemente hoy,problema_tecnico
+Quiero realizar un reclamo formal hoy,reclamo
+Quiero saber los planes disponibles urgente Me llegó un cargo que no reconozco,consulta
+No puedo pagar mi factura gracias,facturacion
+Necesito que reinicien mi servicio por favor,problema_tecnico
+La conexión es muy lenta,problema_tecnico
+Me interesa contratar internet urgente,consulta
+Necesito hablar con soporte Necesito que me recalcularan el monto,consulta
+Necesito que me recalcularan el monto gracias,facturacion
+Me llegó un cargo que no reconozco por favor,facturacion
+El débito automático no me funcionó gracias,facturacion
+Necesito hablar con soporte urgente,consulta
+Mi internet no funciona urgente,problema_tecnico
+Quiero elevar una queja hoy,reclamo
+Quiero cambiar mi plan actual gracias,consulta
+El servicio se corta constantemente hoy,problema_tecnico
+Necesito información del servicio por favor,consulta
+Me cortaron el servicio injustamente por favor,reclamo
+Me llegó un cargo que no reconozco,facturacion
+Cómo hago para mudar mi servicio por favor,consulta
+No tengo señal de wifi en casa urgente,problema_tecnico
+El técnico nunca llegó a mi casa por favor,reclamo
+La velocidad que tengo no es la contratada urgente,problema_tecnico
+El débito automático no me funcionó Necesito información del servicio,facturacion
+Mi internet no funciona urgente,problema_tecnico
+Quiero descargar mi factura del mes pasado por favor Mi internet no funciona,facturacion
+Por qué me cobraron dos veces hoy,facturacion
+Cómo hago para mudar mi servicio hoy,consulta
+Necesito que reinicien mi servicio hoy,problema_tecnico
+La factura llegó muy alta este mes por favor,facturacion
+Cómo hago para mudar mi servicio gracias,consulta
+Cómo hago para mudar mi servicio La conexión es muy lenta,consulta
+Quiero descargar mi factura del mes pasado gracias,facturacion
+No puedo pagar mi factura,facturacion
+La conexión es muy lenta gracias,problema_tecnico
+Se cae la señal cuando llueve urgente,problema_tecnico
+Hace semanas que espero una solución hoy,reclamo
+Necesito hablar con soporte por favor,consulta
+Necesito que me recalcularan el monto,facturacion
+No entiendo mi factura hoy,facturacion
+Se cae la señal cuando llueve por favor,problema_tecnico
+Hace semanas que espero una solución gracias,reclamo
+No entiendo mi factura hoy,facturacion
+El débito automático no me funcionó urgente,facturacion
+Mi módem parpadea en rojo por favor,problema_tecnico
+El técnico nunca llegó a mi casa gracias,reclamo
+Mi módem parpadea en rojo hoy,problema_tecnico
+Qué cobertura tienen en mi zona hoy,consulta
+Mi módem parpadea en rojo urgente Exijo una respuesta por escrito,problema_tecnico
+Por qué me cobraron dos veces gracias,facturacion
+Quiero saber los planes disponibles,consulta
+La factura llegó muy alta este mes por favor,facturacion
+Necesito información del servicio,consulta
+Exijo una respuesta por escrito hoy,reclamo
+No me devuelven el dinero que pagué urgente,reclamo
+Quiero saber los planes disponibles hoy,consulta
+Estoy disconforme con la atención gracias,reclamo
+Necesito hablar con soporte por favor,consulta
+El técnico nunca llegó a mi casa gracias,reclamo
+Quiero elevar una queja gracias,reclamo
+Mi internet no funciona por favor No me devuelven el dinero que pagué,problema_tecnico
+Me llegó un cargo que no reconozco,facturacion
+No entiendo mi factura urgente,facturacion
+Quiero elevar una queja gracias,reclamo
+La conexión es muy lenta Me interesa contratar internet,problema_tecnico
+Exijo una respuesta por escrito hoy,reclamo
+Qué cobertura tienen en mi zona urgente,consulta
+Quiero cambiar mi plan actual hoy,consulta
+Quiero realizar un reclamo formal urgente,reclamo
+La factura llegó muy alta este mes gracias,facturacion
+La velocidad que tengo no es la contratada por favor,problema_tecnico
+Me cortaron el servicio injustamente por favor,reclamo
+La conexión es muy lenta urgente,problema_tecnico
+Estoy disconforme con la atención,reclamo
+Quiero descargar mi factura del mes pasado hoy,facturacion
+Por qué me cobraron dos veces urgente,facturacion
+Quiero elevar una queja por favor,reclamo
+No entiendo mi factura por favor,facturacion
+Me interesa contratar internet hoy,consulta
+Quiero realizar un reclamo formal hoy,reclamo
+No tengo señal de wifi en casa hoy,problema_tecnico
+Mi internet no funciona urgente,problema_tecnico
+Quiero descargar mi factura del mes pasado,facturacion
+Me llegó un cargo que no reconozco gracias,facturacion
+Por qué me cobraron dos veces,facturacion
+La conexión es muy lenta gracias,problema_tecnico
+La velocidad que tengo no es la contratada gracias,problema_tecnico
+No puedo pagar mi factura hoy,facturacion
+No me devuelven el dinero que pagué,reclamo
+Dónde veo mi consumo al día hoy,consulta
+Necesito que reinicien mi servicio hoy,problema_tecnico
+Quiero realizar un reclamo formal urgente,reclamo
+No entiendo mi factura hoy,facturacion
+Quiero cambiar mi plan actual gracias,consulta
+Mi módem parpadea en rojo urgente,problema_tecnico
+No tengo señal de wifi en casa gracias,problema_tecnico
+El débito automático no me funcionó por favor Me interesa contratar internet,facturacion
+Exijo una respuesta por escrito por favor,reclamo
+Necesito hablar con soporte,consulta
+Dónde veo mi consumo al día gracias,consulta
+No me devuelven el dinero que pagué gracias,reclamo
+La velocidad que tengo no es la contratada urgente,problema_tecnico
+La factura llegó muy alta este mes,facturacion
+No me devuelven el dinero que pagué gracias Quiero descargar mi factura del mes pasado,reclamo
