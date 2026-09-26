@@ -1,0 +1,17 @@
+pregunta;categoria;relevante;score_top1;decision;rank_categoria;acierto_categoria;fuente_top1;solapamiento_respuesta
+¿Cuánto tarda el envío a Córdoba?;envios;True;0.563;aceptada;1;True;envios-y-entregas.md;1.0
+¿El envío es gratis o tiene costo?;envios;True;0.4721;aceptada;1;True;envios-y-entregas.md;0.941
+¿Cómo hago para rastrear mi pedido?;envios;True;0.469;aceptada;1;True;envios-y-entregas.md;0.812
+¿Ofrecen productos orgánicos?;productos;True;0.4292;aceptada;1;True;productos-y-stock.md;0.933
+¿Tienen canastas o cestas para regalar?;productos;True;0.5664;aceptada;1;True;productos-y-stock.md;1.0
+¿Cómo sé si una fruta está fresca?;productos;True;0.4126;aceptada;1;True;productos-y-stock.md;0.929
+¿Qué medios de pago aceptan?;pagos;True;0.5135;aceptada;1;True;pagos-y-facturacion.md;1.0
+¿Emiten factura?;pagos;True;0.4497;aceptada;1;True;pagos-y-facturacion.md;0.923
+¿El precio incluye IVA?;pagos;True;0.6159;aceptada;1;True;pagos-y-facturacion.md;1.0
+¿Cuál es la política de devoluciones?;devoluciones;True;0.4965;aceptada;1;True;devoluciones-y-reclamos.md;1.0
+¿Los productos frescos tienen devolución?;devoluciones;True;0.7306;aceptada;1;True;devoluciones-y-reclamos.md;1.0
+¿Me devuelven el dinero si el producto llegó dañado?;devoluciones;True;0.6211;aceptada;1;True;devoluciones-y-reclamos.md;1.0
+¿Cómo se hace una pizza casera?;cocina;False;0.0;rechazada;0;False;productos-y-stock.md;0.222
+¿Cómo se calculan los impuestos en España?;impuestos;False;0.0;rechazada;0;False;productos-y-stock.md;0.222
+¿Cuál es la derivada de f(x) igual a x al cuadrado?;matematicas;False;0.2138;rechazada;0;False;pagos-y-facturacion.md;0.111
+¿Cuánto cuesta una notebook gamer de 32 GB de RAM?;hardware;False;0.0;rechazada;0;False;productos-y-stock.md;0.222

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CasaMuebles | Muebles para tu hogar con asistente IA</title>
+  <meta name="description" content="Tienda online de muebles con envios a todo el pais, garantia de 3 anos y un asistente que responde tus dudas al instante.">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="logo" href="#inicio">
+        <span class="logo__mark">CM</span>
+        <span class="logo__text">CasaMuebles</span>
+      </a>
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#asistente">Asistente</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="badge">Asistente IA integrado · Respuesta al instante</span>
+          <h1>Tu casa empieza con <span class="accent">buenas decisiones</span></h1>
+          <p class="lead">
+            Muebles de madera certificada, tapizados premium y herrajes de acero.
+            Envios a todo el pais, garantia de 3 anos y financiamiento en hasta
+            12 cuotas sin interes.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#asistente">Preguntar al asistente</a>
+            <a class="btn btn--ghost" href="#productos">Ver catalogo</a>
+          </div>
+          <ul class="hero__stats">
+            <li><strong>12.400+</strong><span>clientes felices</span></li>
+            <li><strong>3 anos</strong><span>de garantia</span></li>
+            <li><strong>48 hs</strong><span>de respuesta</span></li>
+          </ul>
+        </div>
+        <div class="hero__arte" aria-hidden="true">
+          <div class="card-glass">
+            <div class="card-glass__row"><span class="dot dot--ok"></span> Asistente en linea</div>
+            <p class="card-glass__msg bot">Hola 👋 Soy el asistente de CasaMuebles. Preguntame por envios, garantia, materiales o formas de pago.</p>
+            <p class="card-glass__msg user">¿Hacen envios a todo el pais?</p>
+            <p class="card-glass__msg bot">Si, enviamos a todo el pais. El envio es gratis en compras superiores a $150.000 y tarda de 3 a 8 dias habiles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTOS ================= -->
+    <section class="section" id="productos">
+      <div class="container">
+        <h2 class="section__title">Lo mas vendido</h2>
+        <p class="section__sub">Categorias mas buscadas por nuestros clientes este mes.</p>
+        <div class="grid grid--3">
+          <article class="card">
+            <span class="card__icon">🛋️</span>
+            <h3>Comedores</h3>
+            <p>Mesas de 6 a 10 lugares en eucalipto macizo con herrajes de acero.</p>
+            <span class="card__tag">Desde $189.000</span>
+          </article>
+          <article class="card">
+            <span class="card__icon">🛏️</span>
+            <h3>Dormitorios</h3>
+            <p>Respaldos acolchados y bases con sommier de 25 cm de espesor.</p>
+            <span class="card__tag">Desde $229.000</span>
+          </article>
+          <article class="card">
+            <span class="card__icon">🗄️</span>
+            <h3>Placards</h3>
+            <p>Interior a medida, con cajones, LED y cierre amortiguado.</p>
+            <span class="card__tag">Desde $159.000</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ASISTENTE ================= -->
+    <section class="section section--alt" id="asistente">
+      <div class="container">
+        <h2 class="section__title">Asistente de consultas</h2>
+        <p class="section__sub">
+          Escribi tu pregunta y el asistente te responde al instante con la
+          informacion de nuestro FAQ.
+        </p>
+
+        <div class="chat" id="chat">
+          <div class="chat__header">
+            <div class="chat__status">
+              <span class="dot dot--ok"></span>
+              <div>
+                <strong>Asistente CasaMuebles</strong>
+                <small>Responde sobre envios, pagos, garantia y mas</small>
+              </div>
+            </div>
+            <button type="button" class="chat__clear" id="chatClear" title="Limpiar conversacion">Limpiar</button>
+          </div>
+
+          <div class="chat__log" id="chatLog" aria-live="polite">
+            <div class="bubble bubble--bot">
+              Hola 👋 Soy el asistente de CasaMuebles. Preguntame por envios,
+              garantia, materiales, devoluciones o formas de pago.
+            </div>
+          </div>
+
+          <div class="chat__chips" id="chatChips"></div>
+
+          <form class="chat__form" id="chatForm" autocomplete="off">
+            <input
+              type="text"
+              id="chatInput"
+              class="chat__input"
+              placeholder="Escribi tu consulta..."
+              maxlength="500"
+              required>
+            <button type="submit" class="btn btn--primary" id="chatSend">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 class="section__title">Contactanos</h2>
+        <p class="section__sub">¿Necesitas algo que el asistente no resuelve? Dejanos tu consulta.</p>
+
+        <form class="form-contacto" id="formContacto" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" minlength="2" maxlength="80" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" maxlength="120" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contanos que necesitas..." minlength="10" maxlength="1000" required></textarea>
+          </div>
+          <!-- Campo trampa anti-spam: oculto a humanos, relleno por bots -->
+          <div class="field field--trap" aria-hidden="true">
+            <label for="categoria">Categoria</label>
+            <input type="text" id="categoria" name="categoria" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn--primary" id="contactoSend">Enviar consulta</button>
+          <p class="form-contacto__msg" id="contactoMsg" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 CasaMuebles — Proyecto demo. Datos y empresa ficticios.</p>
+      <p>Hecho con FastAPI + retrieval por terminos (sin LLM)</p>
+    </div>
+  </footer>
+
+  <!-- ============ CHAT FLOTANTE ============ -->
+  <button type="button" class="fab" id="chatFab" aria-label="Abrir asistente">
+    <span class="fab__icon">💬</span>
+    <span class="fab__label">Asistente</span>
+  </button>
+
+  <div class="chat-mini" id="chatMini" aria-hidden="true">
+    <div class="chat-mini__header">
+      <span><span class="dot dot--ok"></span> Asistente CasaMuebles</span>
+      <button type="button" class="chat-mini__close" id="chatMiniClose" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="chat-mini__log" id="chatMiniLog" aria-live="polite">
+      <div class="bubble bubble--bot">Hola 👋 Preguntame por envios, pagos o garantia.</div>
+    </div>
+    <form class="chat-mini__form" id="chatMiniForm" autocomplete="off">
+      <input type="text" id="chatMiniInput" placeholder="Escribi tu consulta..." maxlength="500" required>
+      <button type="submit" class="btn btn--primary btn--sm">Enviar</button>
+    </form>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

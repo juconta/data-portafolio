@@ -1,0 +1,4 @@
+fecha;pregunta;umbral;score_top1;decision;modo;archivo
+2026-09-26 13:00:38;¿Cuánto tarda el envío a Córdoba?;0.25;0.563;aceptada;evidencia;respuesta_cuanto-tarda-el-envio-a_20260926_130038.md
+2026-09-26 13:00:40;¿Cómo hago una pizza casera?;0.25;0.2086;rechazada;rechazo;respuesta_como-hago-una-pizza-casera_20260926_130040.md
+2026-09-26 13:13:32;¿Cuánto tarda el envío a Córdoba?;0.25;0.563;aceptada;evidencia;respuesta_cuanto-tarda-el-envio-a_20260926_131332.md
