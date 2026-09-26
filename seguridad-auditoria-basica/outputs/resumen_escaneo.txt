@@ -1,0 +1,200 @@
+# Salida de consola del escaner estatico (reproducible)
+
+El comando documentado en el README es:
+    python escaner.py <objetivo>
+
+Se muestran dos corridas: la app vulnerable ANTES de corregir y la app
+segura DESPUES. En un clon limpio el resultado es identico (valores de
+ejemplo redactados para cumplir con la proteccion de secretos de GitHub).
+
+================================================================================
+ ESCANEO 1/2 - app_vulnerable (ANTES DE LAS CORRECCIONES)
+================================================================================
+================================================================================
+                ESCANER ESTATICO DE SEGURIDAD - Auditoria basica                
+================================================================================
+ Fecha           : 2026-09-26 13:16
+ Carpeta         : app_vulnerable
+ Reglas          : 19 patrones + 11 chequeos de archivos
+--------------------------------------------------------------------------------
+ [CRITICA] ARCH-SENS .env
+             Archivo .env versionado en el repositorio
+             archivo presente: .env
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-005   .env:5
+             Secreto con valor real dentro de un archivo .env
+             DB_PASSWORD=admin123
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-005   .env:8
+             Secreto con valor real dentro de un archivo .env
+             API_KEY=sk_EJEMPLO_REDACTADO_PARA_REPO_PUBLICO
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-005   .env:9
+             Secreto con valor real dentro de un archivo .env
+             SECRET_JWT=jwt_supersecreto_de_la_app_2024
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-001   app.py:33
+             Secreto o clave de API escrita en el codigo
+             API_KEY_GLOBAL = "sk_EJEMPLO_REDACTADO_PARA_REPO_PUBLICO" # VULNERABILIDAD
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-001   app.py:34
+             Secreto o clave de API escrita en el codigo
+             SECRET_KEY = "clave-de-sesion-supersecreta-2024" # VULNERABILIDAD
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-003   app.py:51
+             CORS abierto a cualquier origen y con credenciales
+             allow_origins=["*"], # VULNERABILIDAD: cualquier sitio web puede llamar la API allow_credentials=True
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [CRITICA] SEC-004   app.py:159
+             Ejecucion de codigo escrita por el usuario (eval / exec)
+             return {"resultado": eval(expresion)} # VULNERABILIDAD
+             Prioridad: P0 - Inmediata (hoy mismo)
+
+ [ ALTA  ] SEC-007   .env:10
+             Modo debug activado
+             DEBUG=True
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-012   .env.example:6
+             Valores de ejemplo que en realidad son secretos (.env.example)
+             DB_PASSWORD=Admin123
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-012   .env.example:9
+             Valores de ejemplo que en realidad son secretos (.env.example)
+             API_KEY=sk_EJEMPLO_REDACTADO_PARA_REPO_PUBLICO
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-012   .env.example:10
+             Valores de ejemplo que en realidad son secretos (.env.example)
+             SECRET_JWT=cambiar_esto_en_produccion
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-007   .env.example:11
+             Modo debug activado
+             DEBUG=True
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-006   app.py:35
+             Contrasena o clave por defecto escrita en el codigo
+             DB_PASSWORD = "admin123" # VULNERABILIDAD: contrasena de fabrica
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-007   app.py:40
+             Modo debug activado
+             DEBUG = True # VULNERABILIDAD: en produccion muestra trazas internas
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-011   app.py:41
+             Host permitido con comodin (ALLOWED_HOSTS = ['*'])
+             ALLOWED_HOSTS = ["*"] # VULNERABILIDAD: responde en cualquier dominio
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-010   app.py:110
+             Endpoint de autenticacion sin control de intentos (rate limit)
+             @app.post("/login")
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-009   app.py:123
+             Consulta SQL armada por concatenacion de texto
+             execute( f"SELECT id, nombre, password_hash FROM usuarios WHERE email = '{
+             Prioridad: P1 - Alta (esta semana)
+
+ [ ALTA  ] SEC-008   app.py:170
+             Deserializacion insegura (pickle / yaml.load)
+             return {"config": pickle.loads(datos)} # VULNERABILIDAD
+             Prioridad: P1 - Alta (esta semana)
+
+ [ MEDIA ] SEC-015   app.py:43
+             Sin headers de seguridad HTTP
+             app = FastAPI(title="API Demo Vulnerable", version="0.1.0", debug=DEBUG)
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-018   app.py:53
+             Metodos y headers CORS abiertos a todo
+             allow_methods=["*"], # VULNERABILIDAD: cualquier metodo HTTP
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-018   app.py:54
+             Metodos y headers CORS abiertos a todo
+             allow_headers=["*"], # VULNERABILIDAD: cualquier cabecera
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-013   app.py:68
+             Hash debil para contrasenas (MD5 / SHA1)
+             return hashlib.md5((password + "salt").encode()).hexdigest()
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-014   app.py:137
+             Cookie de sesion sin banderas de proteccion
+             "sesion", token_de_sesion(email), httponly=False, secure=False, samesite="none"
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-016   app.py:186
+             Detalle interno del error expuesto al cliente
+             raise HTTPException(status_code=500, detail=str(error))
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ MEDIA ] SEC-017   app.py:195
+             Conexion sin verificar el certificado TLS
+             contexto = ssl._create_unverified_context() # VULNERABILIDAD
+             Prioridad: P2 - Media (proximo sprint)
+
+ [ BAJA  ] SEC-019   app.py:128
+             Sentencias print() de depuracion en codigo de aplicacion
+             print(f"[DEBUG] login fallido para {email} desde {request.client.host}")
+             Prioridad: P3 - Planeada (cuando se pueda)
+
+ [ BAJA  ] SEC-019   app.py:131
+             Sentencias print() de depuracion en codigo de aplicacion
+             print(f"[DEBUG] login correcto de {fila['nombre']} desde {request.client.host}")
+             Prioridad: P3 - Planeada (cuando se pueda)
+
+ [ BAJA  ] SEC-019   app.py:185
+             Sentencias print() de depuracion en codigo de aplicacion
+             print(f"[DEBUG] error en reportes: {error}")
+             Prioridad: P3 - Planeada (cuando se pueda)
+
+--------------------------------------------------------------------------------
+ RESUMEN
+--------------------------------------------------------------------------------
+ CRITICA : 8
+ ALTA    : 11
+ MEDIA   : 7
+ BAJA    : 3
+ TOTAL   : 29
+
+ Opinion         : NO APTO PARA PRODUCCION
+                  Hay problemas criticos que permiten alcanzar robo de datos o ejecutar codigo en el servidor. Hay que corregirlos antes de publicar la aplicacion.
+================================================================================
+
+================================================================================
+ ESCANEO 2/2 - app_segura (DESPUES DE LAS CORRECCIONES)
+================================================================================
+================================================================================
+                ESCANER ESTATICO DE SEGURIDAD - Auditoria basica                
+================================================================================
+ Fecha           : 2026-09-26 13:16
+ Carpeta         : app_segura
+ Reglas          : 19 patrones + 11 chequeos de archivos
+--------------------------------------------------------------------------------
+ Hallazgos       : ninguno
+--------------------------------------------------------------------------------
+ RESUMEN
+--------------------------------------------------------------------------------
+ CRITICA : 0
+ ALTA    : 0
+ MEDIA   : 0
+ BAJA    : 0
+ TOTAL   : 0
+
+ Opinion         : SIN RIESGOS DETECTADOS
+                  No se detectaron los patrones de este catalogo de reglas.
+================================================================================

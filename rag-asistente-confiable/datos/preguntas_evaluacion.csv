@@ -1,0 +1,17 @@
+pregunta;categoria;relevante;respuesta_esperada
+¿Cuánto tarda el envío a Córdoba?;envios;si;El envío a Córdoba tarda entre 48 y 72 horas hábiles desde la confirmación del pago.
+¿El envío es gratis o tiene costo?;envios;si;El envío es gratis a partir de $25.000 y cuesta $3.500 por debajo de ese monto.
+¿Cómo hago para rastrear mi pedido?;envios;si;Se rastrea con el código de seguimiento que enviamos por email y WhatsApp al confirmar el pago.
+¿Ofrecen productos orgánicos?;productos;si;Sí, hay una línea orgánica certificada con limones, naranjas, tomates cherry y miel de azahar.
+¿Tienen canastas o cestas para regalar?;productos;si;Sí, armamos cestas y canastas de regalo con frutas, chocolates y una tarjeta con el mensaje.
+¿Cómo sé si una fruta está fresca?;productos;si;Revisando el color, la firmeza y el aroma: si está dura, brillante y huele bien, está fresca.
+¿Qué medios de pago aceptan?;pagos;si;Aceptamos Mercado Pago, transferencia bancaria y efectivo al retirar en la tienda de Rosario.
+¿Emiten factura?;pagos;si;Sí, emitimos factura electrónica tipo B, descargable desde la cuenta o por email.
+¿El precio incluye IVA?;pagos;si;Sí, todos los precios publicados incluyen el IVA del 21 %.
+¿Cuál es la política de devoluciones?;devoluciones;si;Aceptamos devoluciones dentro de las 48 horas con el producto sin uso y en su envase original.
+¿Los productos frescos tienen devolución?;devoluciones;si;No, los productos frescos y perecederos no admiten devolución porque son alimentos.
+¿Me devuelven el dinero si el producto llegó dañado?;devoluciones;si;Sí, dentro de las 48 horas y con una foto te reintegramos el importe o reenviamos el producto.
+¿Cómo se hace una pizza casera?;cocina;no;Pregunta fuera del alcance de la base de conocimiento de Frutolandia.
+¿Cómo se calculan los impuestos en España?;impuestos;no;Pregunta fuera del alcance de la base de conocimiento de Frutolandia.
+¿Cuál es la derivada de f(x) igual a x al cuadrado?;matematicas;no;Pregunta fuera del alcance de la base de conocimiento de Frutolandia.
+¿Cuánto cuesta una notebook gamer de 32 GB de RAM?;hardware;no;Pregunta fuera del alcance de la base de conocimiento de Frutolandia.

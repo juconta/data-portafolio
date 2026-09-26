@@ -14,12 +14,15 @@ los resultados cuantificables y se puede reproducir de punta a punta.
 ![SQL](https://img.shields.io/badge/SQL-SQLite-003B57?style=flat-square&logo=sqlite)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B?style=flat-square&logo=streamlit)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8+-11557C?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square&logo=fastapi&logoColor=white)
 
 ## Áreas de trabajo
 
 - **Ciencia de Datos**: modelos de clasificación, NLP y análisis explotatorio.
 - **Ingeniería de Datos**: pipelines ETL, APIs, data warehouses y dashboards.
 - **Visualización**: dashboards interactivos con Streamlit.
+- **IA aplicada**: asistentes con recuperación de documentos (RAG), guardrails y evaluación.
+- **Aplicaciones**: automatización con agentes de IA, web con IA y seguridad básica.
 
 ## Proyectos
 
@@ -32,6 +35,10 @@ los resultados cuantificables y se puede reproducir de punta a punta.
 | [Mini Data Warehouse](mini-data-warehouse/) | Ingeniería · SQLite | Esquema estrella + consultas SQL |
 | [Web Scraping de Precios](webscraping-precios/) | Scraping · BeautifulSoup | 20 libros y precios limpios |
 | [Consumo de Energía (E2E)](proyecto-consumo-energia/) | ETL → Análisis → Dashboard | Pipeline completo de consumo eléctrico |
+| [Asistente RAG Confiable](rag-asistente-confiable/) | RAG · Evaluación | **100% recall@1** en 16 preguntas + guardrail |
+| [Automatización con Agentes de IA](agentes-ia-automatizacion/) | Agentes · Orquestación | Reintentos, fallback y monitoreo reproducibles |
+| [Web con Asistente de IA](web-integracion-ia/) | FastAPI · IA | Web con chat sobre FAQs, sin dependencias de LLM |
+| [Auditoría de Seguridad](seguridad-auditoria-basica/) | Seguridad · Análisis estático | 29 hallazgos detectados → **0 tras la corrección** |
 
 ## Contenido de cada proyecto
 
