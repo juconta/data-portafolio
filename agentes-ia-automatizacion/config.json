@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "nombre_proyecto": "Sistemas de Automatización con Agentes de IA",
+  "descripcion": "Orquestador multi-agente que automatiza el procesamiento de un pedido de una frutería online con reintentos, backoff, fallback y monitoreo. Las herramientas están simuladas (100% offline, solo stdlib) pero la lógica de orquestación es real y portable.",
+  "semilla": 42,
+  "simulacion": {
+    "escala_latencia": 0.2,
+    "dormir_entre_reintentos": true,
+    "nota": "escala_latencia comprime las esperas reales; el tiempo lógico simulado (latencias + backoff) se conserva para el reporte y el diagrama."
+  },
+  "tarea": {
+    "id": "procesar_pedido_fruteria",
+    "nombre": "Procesamiento de pedido de frutería online",
+    "descripcion": "Ante un pedido confirmado en el e-commerce se valida el pago, se descuenta stock, se prepara el envío y se notifica al cliente. Cada paso es un agente que llama a una herramienta externa; las herramientas pueden caerse.",
+    "contexto": {
+      "pedido_id": "PED-2026-0001",
+      "cliente": "María Gómez",
+      "canal": "whatsapp",
+      "origen": "web",
+      "monto": 8450.0,
+      "moneda": "ARS",
+      "stock_inicial": 120,
+      "items": [
+        { "sku": "FR-001", "descripcion": "Manixas 2 kg", "cantidad": 2 },
+        { "sku": "FR-007", "descripcion": "Bananas 1 kg", "cantidad": 3 },
+        { "sku": "FR-012", "descripcion": "Frutillas 500 g", "cantidad": 2 }
+      ]
+    },
+    "pasos": [
+      {
+        "id": 1,
+        "nombre": "validar_pago",
+        "descripcion": "Confirma el pago del pedido contra la pasarela antes de mover stock.",
+        "agente": "AgenteValidarPago",
+        "punto_control": "No se toca el stock sin autorización de pago confirmada.",
+        "critico": true,
+        "fallback": null
+      },
+      {
+        "id": 2,
+        "nombre": "actualizar_stock",
+        "descripcion": "Descuenta las unidades del ERP/WMS y reserva el lote para el pedido.",
+        "agente": "AgenteActualizarStock",
+        "punto_control": "Sin stock reservado no se puede preparar el envío.",
+        "critico": true,
+        "fallback": {
+          "agente": "AgenteFallbackStock",
+          "motivo": "El ERP no respondió tras agotar los reintentos: se descuenta el stock en la planilla de control manual y el pedido queda marcado para revisión humana antes del despacho."
+        }
+      },
+      {
+        "id": 3,
+        "nombre": "preparar_envio",
+        "descripcion": "Genera la guía de envío, asigna transportista y calcula el packaging.",
+        "agente": "AgentePrepararEnvio",
+        "punto_control": "Requiere stock reservado (paso 2) y domicilio validado.",
+        "critico": true,
+        "fallback": null
+      },
+      {
+        "id": 4,
+        "nombre": "notificar_cliente",
+        "descripcion": "Manda el aviso de confirmación y el seguimiento del envío al cliente.",
+        "agente": "AgenteNotificar",
+        "punto_control": "Es el último paso: si falla no se pierde el pedido, pero hay que alertar para el contacto manual.",
+        "critico": false,
+        "fallback": null
+      }
+    ]
+  },
+  "reintentos": {
+    "max_reintentos": 3,
+    "backoff_base": 1.0,
+    "estrategia": "exponencial",
+    "factor": 2.0,
+    "jitter": 0.2,
+    "escala_tiempo_real": 0.15,
+    "max_reintentos_fallback": 2,
+    "solo_errores_reintentables": true,
+    "nota": "max_reintentos es el total de intentos por paso (1 original + 2 reintentos). El backoff espera backoff_base * factor^(intento-1) con jitter de +-20%. escala_tiempo_real comprime la espera real del demo (1/15 del tiempo simulado) para que la corrida termine rápido; el tiempo lógico del reporte y del diagrama no se comprime."
+  },
+  "agentes": {
+    "AgenteValidarPago": {
+      "clase": "AgenteValidarPago",
+      "descripcion": "Confirma el cobro en la pasarela de pagos.",
+      "herramienta_real": "POST /v1/pagos/{pedido_id}/confirmar (idempotente)",
+      "prob_fallo": 0.55,
+      "prob_rechazo": 0.0,
+      "latencia_ms": [120, 340],
+      "timeout_simulado_ms": 500
+    },
+    "AgenteActualizarStock": {
+      "clase": "AgenteActualizarStock",
+      "descripcion": "Descuenta stock en el ERP de depósito (servicio interno intermitente).",
+      "herramienta_real": "POST /wms/inventario/descontar (con reservation_id)",
+      "prob_fallo": 0.85,
+      "prob_rechazo": 0.0,
+      "latencia_ms": [220, 700],
+      "timeout_simulado_ms": 480
+    },
+    "AgentePrepararEnvio": {
+      "clase": "AgentePrepararEnvio",
+      "descripcion": "Emite la guía de envío y reserva cupo en el transportista.",
+      "herramienta_real": "POST /envios/cotizar + POST /envios/guia",
+      "prob_fallo": 0.15,
+      "prob_rechazo": 0.0,
+      "latencia_ms": [150, 420],
+      "timeout_simulado_ms": 700
+    },
+    "AgenteNotificar": {
+      "clase": "AgenteNotificar",
+      "descripcion": "Envía el aviso al cliente por el canal configurado (servicio inestable).",
+      "herramienta_real": "POST https://api.whatsapp/messages (o publicar en cola SQS/Kafka)",
+      "prob_fallo": 0.5,
+      "prob_rechazo": 0.0,
+      "latencia_ms": [90, 520],
+      "timeout_simulado_ms": 400
+    },
+    "AgenteFallbackStock": {
+      "clase": "AgenteFallbackStock",
+      "descripcion": "Agente de respaldo del paso 2: descuenta en la planilla manual y abre ticket de revisión humana.",
+      "herramienta_real": "Escribir en la planilla de control (Sheets/Airtable) + cola de tickets (Jira/Zendesk)",
+      "prob_fallo": 0.1,
+      "prob_rechazo": 0.0,
+      "latencia_ms": [100, 260],
+      "timeout_simulado_ms": 600
+    }
+  },
+  "monitoreo": {
+    "log": "outputs/log_ejecucion.jsonl",
+    "reporte": "outputs/reporte_ejecucion.md",
+    "diagrama": "outputs/diagrama_pasos.png",
+    "nivel_minimo": "INFO"
+  }
+}

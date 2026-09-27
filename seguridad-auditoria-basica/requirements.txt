@@ -1,0 +1,5 @@
+# Dependencias de las apps de ejemplo (app_vulnerable y app_segura).
+# El escaner estatico (escaner.py) NO necesita ninguna: corre con la libreria
+# estandar de Python 3.10 o superior.
+fastapi>=0.110
+uvicorn>=0.29

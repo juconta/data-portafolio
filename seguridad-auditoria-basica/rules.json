@@ -1,0 +1,348 @@
+{
+  "version": "1.0",
+  "nombre": "Reglas base de auditoria basica de ciberseguridad (apps Python / web)",
+  "descripcion": "Configuracion del escaner estatico escaner.py. Cada regla define tipo de deteccion, patron (regex), severidad, categoria y una recomendacion escrita en lenguaje simple, pensada para una pyme sin equipo de seguridad.",
+  "ignorar_comentarios": true,
+  "maximo_por_archivo": 3,
+  "extensiones": [
+    ".py",
+    ".json",
+    ".yaml",
+    ".yml",
+    ".ini",
+    ".cfg",
+    ".toml",
+    ".txt",
+    ".html",
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".sh",
+    ".conf",
+    ".properties",
+    ".env"
+  ],
+  "nombres_adicionales": [
+    ".env",
+    ".env.example",
+    ".env.local",
+    ".env.production",
+    ".env.development",
+    ".htaccess"
+  ],
+  "carpetas_ignoradas": [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "node_modules",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "outputs",
+    "hallazgos"
+  ],
+  "ignorados": [
+    "INFORME_AUDITORIA.md",
+    "INFORME_SEGURA.md",
+    "resumen_escaneo.txt",
+    "rules.json"
+  ],
+  "mapa_prioridad": {
+    "CRITICA": "P0 - Inmediata (hoy mismo)",
+    "ALTA": "P1 - Alta (esta semana)",
+    "MEDIA": "P2 - Media (proximo sprint)",
+    "BAJA": "P3 - Planeada (cuando se pueda)"
+  },
+  "archivos_sensibles": [
+    {
+      "patron": ".env",
+      "severidad": "CRITICA",
+      "categoria": "Secretos",
+      "nombre": "Archivo .env versionado en el repositorio",
+      "descripcion": "El archivo .env guarda las claves reales del proyecto y esta guardado en el repositorio. Cualquiera que tenga acceso al codigo puede leerlas.",
+      "recomendacion": "Borrar el archivo del repositorio, agregar '.env' al .gitignore y rotar (cambiar) todas las claves que estaban dentro."
+    },
+    {
+      "patron": ".env.local",
+      "severidad": "CRITICA",
+      "categoria": "Secretos",
+      "nombre": "Archivo .env.local versionado",
+      "descripcion": "Variante local del archivo de entorno, suele contener contrasenas de la base de datos.",
+      "recomendacion": "Eliminarlo del repositorio, ignorarlo en .gitignore y rotar las credenciales."
+    },
+    {
+      "patron": "*.pem",
+      "severidad": "CRITICA",
+      "categoria": "Secretos",
+      "nombre": "Certificado o llave privada en el repositorio",
+      "descripcion": "Los archivos .pem pueden contener llaves privadas de TLS o de firma.",
+      "recomendacion": "No versionar llaves privadas: guardarlas en el gestor de secretos del hosting y rotar la que haya quedado expuesta."
+    },
+    {
+      "patron": "*.key",
+      "severidad": "CRITICA",
+      "categoria": "Secretos",
+      "nombre": "Llave (.key) dentro del proyecto",
+      "descripcion": "Un archivo .key es normalmente una llave privada usada para firmar o cifrar.",
+      "recomendacion": "Mover la llave fuera del repositorio y rotarla si estuvo publicada."
+    },
+    {
+      "patron": "id_rsa",
+      "severidad": "CRITICA",
+      "categoria": "Secretos",
+      "nombre": "Llave privada SSH (id_rsa) versionada",
+      "descripcion": "La llave privada de acceso al servidor quedo guardada en el repositorio.",
+      "recomendacion": "Revocar la llave en el servidor, generar una nueva y borrarla del repositorio."
+    },
+    {
+      "patron": "*.p12",
+      "severidad": "ALTA",
+      "categoria": "Secretos",
+      "nombre": "Certificado .p12 versionado",
+      "descripcion": "El formato .p12 agrupa un certificado con su llave privada.",
+      "recomendacion": "Guardar los certificados en el almacen de secretos del servidor, no en el repositorio."
+    },
+    {
+      "patron": "secrets.y*ml",
+      "severidad": "ALTA",
+      "categoria": "Secretos",
+      "nombre": "Archivo de secretos (secrets.yaml) versionado",
+      "descripcion": "Este tipo de archivo suele guardar usuarios y contrasenas de servicios internos.",
+      "recomendacion": "Usar variables de entorno o un gestor de secretos y sacar el archivo del repositorio."
+    },
+    {
+      "patron": "*service*account*.json",
+      "severidad": "ALTA",
+      "categoria": "Secretos",
+      "nombre": "Credenciales de cuenta de servicio",
+      "descripcion": "Los JSON de cuenta de servicio permiten publicar y reemplazar credenciales de la nube.",
+      "recomendacion": "Rotar la credencial, revocarla en la consola del proveedor y no volver a subirla al repositorio."
+    },
+    {
+      "patron": "*.sqlite",
+      "severidad": "MEDIA",
+      "categoria": "Datos",
+      "nombre": "Base de datos SQLite dentro del proyecto",
+      "descripcion": "Una base de datos local en el repositorio puede contener datos reales de clientes.",
+      "recomendacion": "No versionar bases de datos: usar un gestor externo y datos ficticios para las pruebas."
+    },
+    {
+      "patron": "*.db",
+      "severidad": "MEDIA",
+      "categoria": "Datos",
+      "nombre": "Base de datos local dentro del proyecto",
+      "descripcion": "Archivos .db suelen ser bases de datos SQLite con informacion de la aplicacion.",
+      "recomendacion": "Ignorar *.db en el .gitignore y 连接ar la aplicacion a una base de datos gestionada."
+    },
+    {
+      "patron": ".htpasswd",
+      "severidad": "ALTA",
+      "categoria": "Secretos",
+      "nombre": "Archivo de usuarios del servidor (.htpasswd)",
+      "descripcion": " Contiene usuarios y hashes de contrasena de accesos protegidos por Apache.",
+      "recomendacion": "Sacar el archivo del repositorio y rotar las contrasenas si quedaron expuestas."
+    }
+  ],
+  "reglas": [
+    {
+      "id": "SEC-001",
+      "nombre": "Secreto o clave de API escrita en el codigo",
+      "categoria": "Secretos",
+      "severidad": "CRITICA",
+      "patron": "(?i)\\b[a-z0-9_]*?(?:api[_-]?key|apikey|secret[_-]?key|secretkey|access[_-]?key|access[_-]?token|auth[_-]?token|private[_-]?key|client[_-]?secret|bearer[_-]?token)\\w*\\s*[:=]\\s*[\"'][^\"'\\s]{8,}[\"']",
+      "descripcion": "Hay una clave o token escrita directamente en el archivo de codigo. Se lee como un texto normal, asi que cualquiera con acceso al repositorio la obtiene al instante.",
+      "recomendacion": "Leer la clave desde una variable de entorno (os.getenv) y guardarla en el gestor de secretos del hosting. Luego rotar la clave expuesta."
+    },
+    {
+      "id": "SEC-002",
+      "nombre": "Credencial de un proveedor con formato reconocible",
+      "categoria": "Secretos",
+      "severidad": "CRITICA",
+      "patron": "(?:sk_(?:live|test)_[A-Za-z0-9]{10,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|xox[baprs]-[A-Za-z0-9-]{10,}|AIza[0-9A-Za-z_-]{20,}|-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----)",
+      "descripcion": "El valor tiene el formato de una credencial real de un proveedor (pasarela de pago, nube, GitHub, Slack o Google). Si es auténtica, alcanza para operar la cuenta de la empresa.",
+      "recomendacion": "Revocar y regenerar la credencial en el panel del proveedor, y cargarla desde una variable de entorno o un gestor de secretos."
+    },
+    {
+      "id": "SEC-003",
+      "nombre": "CORS abierto a cualquier origen y con credenciales",
+      "categoria": "Acceso a la API",
+      "severidad": "CRITICA",
+      "patron": "(?s)allow_origins\\s*=\\s*\\[\\s*[\"']\\*[\"']\\s*\\].{0,300}?allow_credentials\\s*=\\s*True",
+      "descripcion": "La API acepta peticiones desde CUALQUIER pagina web y ademas envia credenciales. Un atacante puede poner un sitio falso que robe la sesion del usuario con un simple formulario.",
+      "recomendacion": "Reemplazar el '*' por la lista de dominios propios (ej. https://app.miempresa.com) y mantener allow_credentials=True solo con esa lista."
+    },
+    {
+      "id": "SEC-004",
+      "nombre": "Ejecucion de codigo escrita por el usuario (eval / exec)",
+      "categoria": "Codigo inseguro",
+      "severidad": "CRITICA",
+      "patron": "(?<![\\w.])(?:eval|exec|compile)\\s*\\(",
+      "descripcion": "La aplicacion ejecuta como codigo lo que recibe del cliente. Con esto, cualquiera que pueda llamar al endpoint puede ejecutar comandos en el servidor.",
+      "recomendacion": "Sacar eval/exec y reemplazar por una lista blanca (whitelist) de operaciones permitidas, o por un parser matematico seguro."
+    },
+    {
+      "id": "SEC-005",
+      "nombre": "Secreto con valor real dentro de un archivo .env",
+      "categoria": "Secretos",
+      "severidad": "CRITICA",
+      "archivos": [
+        "*.env",
+        ".env",
+        "*.env.local",
+        "*.env.production",
+        "*.env.development"
+      ],
+      "patron": "(?im)^[ \\t]*[A-Z0-9_]*(?:PASSWORD|SECRET|API_?KEY|APIKEY|TOKEN|CREDENTIAL|PRIVATE)[A-Z0-9_]*[ \\t]*=[ \\t]*[\"']?[^\\s#][^\\r\\n#]{3,}",
+      "descripcion": "El archivo de entorno tiene el valor real de una clave o contrasena, y ademas esta guardado en el repositorio. Con solo clonar el proyecto alcanza para obtenerlo.",
+      "recomendacion": "Borrar el .env del repositorio, ignorarlo en el .gitignore, cargar los valores desde el gestor de secretos del hosting y rotar la clave expuesta."
+    },
+    {
+      "id": "SEC-006",
+      "nombre": "Contrasena o clave por defecto escrita en el codigo",
+      "categoria": "Secretos",
+      "severidad": "ALTA",
+      "patron": "(?i)\\b[a-z0-9_]*?(?:password|passwd|contrase[nñ]a|clave)\\w*\\s*[:=]\\s*[\"'][^\"'\\s]{4,}[\"']",
+      "descripcion": "Hay contrasenas de ejemplo o de fabrica dentro del proyecto. Los atacantes prueban siempre las contrasenas mas comunes (admin, 123456, password).",
+      "recomendacion": "Leer la contrasena desde una variable de entorno, generar contrasenas aleatorias para el alta de usuarios y no usar valores de fabrica."
+    },
+    {
+      "id": "SEC-007",
+      "nombre": "Modo debug activado",
+      "categoria": "Configuracion",
+      "severidad": "ALTA",
+      "patron": "(?i)\\bdebug\\s*[:=]\\s*True\\b",
+      "descripcion": "Con el modo debug prendido, cualquier error muestra trazas internas (rutas del servidor, librerias, a veces valores de variables) al visitante.",
+      "recomendacion": "Dejar debug=False en produccion y activarlo solo en el entorno de desarrollo, controlado por una variable de entorno."
+    },
+    {
+      "id": "SEC-008",
+      "nombre": "Deserializacion insegura (pickle / yaml.load)",
+      "categoria": "Datos",
+      "severidad": "ALTA",
+      "patron": "pickle\\.loads?\\s*\\(|cPickle\\.loads?\\s*\\(|yaml\\.load\\s*\\((?![^)]*(?:safe|Safe))",
+      "descripcion": "Deserializar con pickle o con yaml.load sin proteccion permite que los datos recibidos ejecuten codigo en el servidor.",
+      "recomendacion": "Usar json para intercambiar datos o, con YAML, usar yaml.safe_load."
+    },
+    {
+      "id": "SEC-009",
+      "nombre": "Consulta SQL armada por concatenacion de texto",
+      "categoria": "Inyeccion",
+      "severidad": "ALTA",
+      "patron": "(?i)(?:execute|executemany|query|raw)\\s*\\(\\s*f[\"'][^)]*\\{",
+      "descripcion": "La consulta SQL se arma metiendo el texto del usuario dentro de la cadena. Un atacante puede escribir comillas para leer o borrar la base de datos (inyeccion SQL).",
+      "recomendacion": "Usar consultas parametrizadas: execute('SELECT ... WHERE email = ?', (email,)) y nunca interpolar variables con f-strings."
+    },
+    {
+      "id": "SEC-010",
+      "nombre": "Endpoint de autenticacion sin control de intentos (rate limit)",
+      "tipo": "ausencia_de_patron",
+      "categoria": "Acceso",
+      "severidad": "ALTA",
+      "detecta": "(?i)@(?:app|router|api)\\.(?:post|get|put)\\([^)]*[\"'](?:[^\"']*\\/)?(?:login|log-in|signin|sign-in|auth|authenticate|autenticar|registro|register)",
+      "requiere": "(?i)rate[_-]?limit|ratelimit|limiter|limitar|throttle|too_many|429|slowapi|bloqueo",
+      "descripcion": "El endpoint de login no tiene ningun limite de peticiones. Un atacante puede probar miles de contrasenas por minuto hasta adivinar la cuenta.",
+      "recomendacion": "Agregar un rate limit en memoria o con libreria (por ejemplo 5 intentos por minuto y por IP), devolver HTTP 429 y registrar los fallos."
+    },
+    {
+      "id": "SEC-011",
+      "nombre": "Host permitido con comodin (ALLOWED_HOSTS = ['*'])",
+      "categoria": "Configuracion",
+      "severidad": "ALTA",
+      "patron": "(?i)ALLOWED_HOSTS\\s*=\\s*\\[\\s*[\"']\\*[\"']\\s*\\]",
+      "descripcion": "La aplicacion responde a cualquier nombre de dominio. Eso permite cambiar el dominio en un enlace para generar paginas de phishing o para capturar contrasenas con formularios falsos.",
+      "recomendacion": "Limitar a los dominios reales (por ejemplo ['app.miempresa.com', 'localhost']) y activar validacion de Host con TrustedHostMiddleware."
+    },
+    {
+      "id": "SEC-012",
+      "nombre": "Valores de ejemplo que en realidad son secretos (.env.example)",
+      "categoria": "Secretos",
+      "severidad": "ALTA",
+      "archivos": [
+        "*.env.example",
+        "*.env.sample",
+        "*.env.dist"
+      ],
+      "patron": "(?im)^[ \\t]*[A-Z0-9_]*(?:PASSWORD|SECRET|API_?KEY|APIKEY|TOKEN|CREDENTIAL)[A-Z0-9_]*[ \\t]*=[ \\t]*[\"']?[A-Za-z0-9_\\-./+]{4,}",
+      "descripcion": "El archivo de ejemplo trae valores reales en vez de valores vacios. Los desarrolladores terminan usarlos tal cual y la clave queda igual de expuesta.",
+      "recomendacion": "Dejar los valores vacios (API_KEY=) y poner solo la instruccion de como completarlos, para que nadie copie un valor real."
+    },
+    {
+      "id": "SEC-013",
+      "nombre": "Hash debil para contrasenas (MD5 / SHA1)",
+      "categoria": "Criptografia",
+      "severidad": "MEDIA",
+      "patron": "hashlib\\.(?:md5|sha1)\\s*\\(",
+      "descripcion": "MD5 y SHA1 fueron disenados para velocidad, no para guardar contrasenas. Se rompen en segundos con una PC moderna, asi que un robo de la base de datos equivale a tener todas las contrasenas.",
+      "recomendacion": "Usar bcrypt, scrypt o argon2 (o al menos hashlib.pbkdf2_hmac con muchas iteraciones y sal por usuario)."
+    },
+    {
+      "id": "SEC-014",
+      "nombre": "Cookie de sesion sin banderas de proteccion",
+      "categoria": "Sesiones",
+      "severidad": "MEDIA",
+      "patron": "(?i)httponly\\s*=\\s*False|\\bsecure\\s*=\\s*False|samesite\\s*=\\s*[\"']none[\"']",
+      "descripcion": "La cookie de sesion no esta protegida: se puede leer desde JavaScript y se envia sin cifrar, con lo que queda expuesta ante robo de sesion.",
+      "recomendacion": "Usar httponly=True, secure=True y samesite='lax' o 'strict', y poner la cookie con prefijo __Host-."
+    },
+    {
+      "id": "SEC-015",
+      "nombre": "Sin headers de seguridad HTTP",
+      "tipo": "ausencia_de_patron",
+      "categoria": "Configuracion",
+      "severidad": "MEDIA",
+      "detecta": "FastAPI\\s*\\(|Starlette\\s*\\(",
+      "requiere": "X-Content-Type-Options|Strict-Transport-Security|X-Frame-Options|Content-Security-Policy|Referrer-Policy",
+      "descripcion": "La app no envia headers como X-Content-Type-Options, Strict-Transport-Security ni X-Frame-Options. Eso deja la puerta abierta a secuestros de sesion, HTTPS editado y clickjacking.",
+      "recomendacion": "Agregar un middleware de Starlette que anada esos headers a cada respuesta (ver app_segura/app.py)."
+    },
+    {
+      "id": "SEC-016",
+      "nombre": "Detalle interno del error expuesto al cliente",
+      "categoria": "Informacion filtrada",
+      "severidad": "MEDIA",
+      "patron": "(?i)detail\\s*=\\s*str\\s*\\(|traceback\\.print_exc\\s*\\(",
+      "descripcion": "Al cliente se le devuelve el mensaje crudo de la excepcion. Sirve de mapa para el atacante: revela nombres de tablas, rutas del servidor y librerias instaladas.",
+      "recomendacion": "Registrar la excepcion en el log del servidor (logging) y responder al cliente con un mensaje generico y un codigo de error interno."
+    },
+    {
+      "id": "SEC-017",
+      "nombre": "Conexion sin verificar el certificado TLS",
+      "categoria": "Transporte",
+      "severidad": "MEDIA",
+      "patron": "ssl\\._create_unverified_context\\s*\\(|verify\\s*=\\s*False|CERT_NONE|check_hostname\\s*=\\s*False",
+      "descripcion": "La app se conecta aceptando cualquier certificado. Un atacante en la red puede leer y modificar lo que la aplicacion envia o recibe (ataque intermediario).",
+      "recomendacion": "Usar la verificacion normal de TLS. Si hace falta un certificado interno, agregar su CA al almacen del sistema en vez de desactivar el control."
+    },
+    {
+      "id": "SEC-018",
+      "nombre": "Metodos y headers CORS abiertos a todo",
+      "categoria": "Acceso a la API",
+      "severidad": "MEDIA",
+      "patron": "(?i)allow_(?:methods|headers)\\s*=\\s*\\[\\s*[\"']\\*[\"']\\s*\\]",
+      "descripcion": "Se permiten todos los metodos HTTP y todos los headers desde cualquier origen. Aumenta la superficie de ataque de la API.",
+      "recomendacion": "Declarar solo los metodos y headers que la app usa realmente (ej. ['GET', 'POST'] y ['Authorization', 'Content-Type'])."
+    },
+    {
+      "id": "SEC-019",
+      "nombre": "Sentencias print() de depuracion en codigo de aplicacion",
+      "categoria": "Calidad",
+      "severidad": "BAJA",
+      "patron": "(?m)^[ \\t]*print\\s*\\(",
+      "descripcion": "Hay print() de depuracion. No es una vulnerabilidad en si, pero ensucia los logs y suele terminar mostrando datos sensibles en consola.",
+      "recomendacion": "Reemplazar por el modulo logging con niveles (info, warning, error) y revisar que no se registren contrasenas ni tokens."
+    }
+  ],
+  "comentarios_solo_en": [
+    ".py",
+    ".yaml",
+    ".yml",
+    ".ini",
+    ".cfg",
+    ".toml",
+    ".sh",
+    ".conf",
+    ".env"
+  ]
+}

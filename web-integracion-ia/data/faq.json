@@ -1,0 +1,66 @@
+{
+  "empresa": "CasaMuebles",
+  "descripcion": "Tienda online de muebles para el hogar, con envio a todo el pais, garantia de 3 anos y financiamiento propio.",
+  "preguntas": [
+    {
+      "pregunta": "Hacen envios a todo el pais?",
+      "respuesta": "Si, enviamos a todo el pais. El envio es gratis en compras superiores a $150.000 y tarda de 3 a 8 dias habiles segun la provincia. Los envios a domicilio incluyen subida a planta y coordinacion previa por WhatsApp.",
+      "keywords": ["envio", "enviar", "enviamenos", "entrega", "entregar", "llegar", "llega", "pais", "provincia", "gratis", "dias", "shipping", "reparto", "correo", "retiro", "domicilio", "flete"]
+    },
+    {
+      "pregunta": "Cuanto cuesta el envio?",
+      "respuesta": "El envio tiene un costo fijo de $8.900 para compras de hasta $150.000. A partir de ese monto el envio es gratuito a todo el pais. El costo se calcula automaticamente en el carrito de compras.",
+      "keywords": ["costo", "precio", "precio envio", "valor", "cuanto", "cuesta", "carrito", "tarifa", "barato", "economico", "total"]
+    },
+    {
+      "pregunta": "Que garantia tienen los muebles?",
+      "respuesta": "Todos nuestros muebles tienen 3 anos de garantia contra defectos de fabricacion en estructura y mecanismos. La garantia no cubre danos por uso indebido, humedad o desmontaje. Para aplicar la garantia solo necesitás el numero de factura.",
+      "keywords": ["garantia", "garantizado", "garantia meses", "defecto", "falla", "rotura", "reparacion", "cobertura", "anos", "postventa", "service"]
+    },
+    {
+      "pregunta": "Que materiales usan los muebles?",
+      "respuesta": "Trabajamos con madera de eucalipto y pino certificada, tapizados en tela suiza y cuero sintetico de alta resistencia, y herrajes de acero con acabado en cromo. Cada ficha de producto detalla el material exacto de cada pieza.",
+      "keywords": ["material", "materiales", "madera", "eucalipto", "pino", "cuero", "cuero sintetico", "tela", "tapizado", "tapizados", "calidad", "duradero", "resistente", "sillon", "sofa", "mesa", "silla", "cama", "mueble", "muebles", "metal", "acero", "envases"]
+    },
+    {
+      "pregunta": "Como funcionan las devoluciones?",
+      "respuesta": "Tenes 30 dias calendario desde la entrega para devolver un producto sin uso y en su packaging original. La devolucion es gratuita y te emitimos el reembolso en un maximo de 10 dias habiles una vez recibido el producto en nuestro centro de distribucion.",
+      "keywords": ["devolucion", "devoluciones", "devolver", "devolucion producto", "reembolso", "cambio", "cambiar", "reintegro", "estorno", "arrepentimiento", "dias", "enviar de vuelta", "sillon", "devolucion mueble"]
+    },
+    {
+      "pregunta": "Que formas de pago aceptan?",
+      "respuesta": "Aceptamos tarjetas de credito y debito (Visa, Mastercard y Amex), transferencia bancaria y Mercado Pago. Ademas podes financiar en 3, 6 o 12 cuotas sin interes para compras desde $80.000.",
+      "keywords": ["pago", "pagar", "forma", "formas", "tarjeta", "credito", "debito", "visa", "mastercard", "amex", "transferencia", "banco", "mercado", "mercado pago", "cuotas", "financiacion", "financiar", "debito automatico", "factura"]
+    },
+    {
+      "pregunta": "Los muebles vienen armados?",
+      "respuesta": "La mayoria de nuestros productos se entregan desarmados en caja para ahorrarte el costo de transporte, con manual ilustrado y todos los herrajes incluidos. El armado de muebles grandes se puede contratar por separado con nuestro equipo en la zona del Gran Buenos Aires.",
+      "keywords": ["armado", "armar", "armar mueble", "desarmado", "ensamblar", "montaje", "montar", "ensamblaje", "caja", "manual", "herrajes", "armar sillon", "armar cama", "armador"]
+    },
+    {
+      "pregunta": "Puedo elegir el color y el tapizado?",
+      "respuesta": "Si, casi todos los productos ofrecen una paleta de colores y tapizados a eleccion sin costo adicional. Selecciona la variante en la ficha del producto antes de agregar al carrito; si no hay stock de la combinacion elegida te contactamos para darte el tiempo de espera.",
+      "keywords": ["color", "colores", "tapizado", "tapizados", "tela", "variante", "variantes", "personalizar", "elegir", "elige", "acabado", "diseno", "cambiar color", "tambien"]
+    },
+    {
+      "pregunta": "Hacen muebles a medida?",
+      "respuesta": "Si, tenemos un servicio de muebles a medida para placards, bibliotecas y escritorios. Completa el formulario de contacto indicando medidas y material, y el equipo de diseno te responde con una cotizacion en 48 horas habiles.",
+      "keywords": ["medida", "medidas", "medida exacta", "a medida", "personalizado", "diseno", "cotizacion", "cotizar", "placard", "biblioteca", "escritorio", "proyecto", "arquitecto", "armario", "closet"]
+    },
+    {
+      "pregunta": "Como puedo rastrear mi pedido?",
+      "respuesta": "Apenas el pedido sale del centro de distribucion te enviamos el numero de seguimiento por email y WhatsApp. Tambien podes consultar el estado desde la seccion 'Mis pedidos' con tu email y el codigo de orden. Si el pedido se demora mas de 10 dias habiles, contactanos y lo gestionamos como entrega prioritaria.",
+      "keywords": ["rastreo", "seguimiento", "pedido", "pedidos", "orden", "compra", "estado", "entrega", "codigo", "track", "mis pedidos", "numero de pedido", "cuando llega", "retraso", "retrasado"]
+    },
+    {
+      "pregunta": "Que medidas tiene el showroom?",
+      "respuesta": "Nuestro showroom de 900 m2 esta en Av. Corrientes 4800, CABA, y funciona de lunes a sabado de 10 a 19 hs. Ahi podes ver los productos, probar los tapizados y tomar medidas reales para tus espacios.",
+      "keywords": ["showroom", "local", "tienda", "sucursal", "direccion", "donde", "donde quedan", "ubicacion", "visitar", "horario", "horarios", "sabado", "domingo", "abierto", "cerrado", "mapa"]
+    },
+    {
+      "pregunta": "Que recomendaciones hay para la limpieza y el cuidado?",
+      "respuesta": "Cada producto incluye una guia de cuidado. Para madera se recomienda limpiar con pano humedo y aceite natural cada 6 meses; para tapizados, aspirado suave y limpieza en seco. Evita el uso de alcohol o solventes que dañan el acabado.",
+      "keywords": ["limpieza", "limpiar", "limpio", "limpia", "cuidado", "cuidados", "mantenimiento", "mantener", "alcohol", "pano", "guia", "manchar", "mancha", "sillon", "como limpiar", "cuero", "tapizado", "leather"]
+    }
+  ]
+}
