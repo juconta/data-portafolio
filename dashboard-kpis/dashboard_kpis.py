@@ -46,8 +46,8 @@ ventas_ciudad = df.groupby("ciudad")["venta"].sum().sort_values()
 st.bar_chart(ventas_ciudad)
 
 st.subheader("Ventas por fecha")
-ventas_fecha = df.set_index("fecha")["venta"].sum().sort_index()
+ventas_fecha = df.set_index("fecha")["venta"].groupby(level=0).sum().sort_index()
 st.line_chart(ventas_fecha)
 
 st.subheader("Detalle de transacciones")
-st.dataframe(df.sort_values("fecha", ascending=False), use_container_width=True)
+st.dataframe(df.sort_values("fecha", ascending=False), width="stretch")
