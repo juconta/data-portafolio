@@ -3,6 +3,8 @@
 Análisis end-to-end del consumo eléctrico de clientes: **ETL → Análisis → Dashboard interactivo**.
 Es un caso completo que muestra el ciclo de vida de los datos en un mismo proyecto.
 
+**Demo en vivo**: <https://data-portafolio-juconta-dashboards-consumo-de-energia.streamlit.app>
+
 ## Problema
 
 Una empresa de energía necesita entender **cómo y dónde consumen sus clientes** para
