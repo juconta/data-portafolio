@@ -68,6 +68,6 @@ python churn_model.py     # entrena + evalúa + exporta modelo
 
 - **GitHub**: [github.com/juconta](https://github.com/juconta)
 - **Correo**: juancontato@gmail.com
-- **LinkedIn**: *completá tu URL aquí (ej: linkedin.com/in/tu-usuario)*
+- **LinkedIn**: [linkedin.com/in/juan-contato-4609325a](https://www.linkedin.com/in/juan-contato-4609325a/)
 
 ¿Buscás sumarte a tu equipo? Escribime, respondo el mismo día.
