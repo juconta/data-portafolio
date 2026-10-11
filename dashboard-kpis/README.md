@@ -4,6 +4,8 @@ Aplicación web interactiva (**Streamlit**) que muestra los indicadores clave de
 ventas de un negocio: totales, clientes activos, ticket promedio y evolución
 por ciudad y por fecha.
 
+**Demo en vivo**: <https://data-portafolio-juconta-dashboards-kpis.streamlit.app>
+
 ## Problema
 
 El dueño de un negocio necesita **ver sus ventas de un vistazo** para tomar

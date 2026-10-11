@@ -30,15 +30,20 @@ los resultados cuantificables y se puede reproducir de punta a punta.
 |---|---|---|
 | [Customer Churn Prediction](customer-churn/) | ML · Scikit-learn | Random Forest, **F1 0.76 / AUC-ROC 0.94** |
 | [Clasificación de Mensajes (NLP)](nlp-atencion-clientes/) | NLP · Naive Bayes | 4 categorías, **91% exactitud** |
-| [Dashboard de KPIs de Ventas](dashboard-kpis/) | Dashboard · Streamlit | KPIs interactivos de ventas |
+| [Dashboard de KPIs de Ventas](dashboard-kpis/) | Dashboard · Streamlit | KPIs interactivos de ventas — [ver en vivo](https://data-portafolio-juconta-dashboards-kpis.streamlit.app) |
 | [Pipeline de Datos desde API](pipeline-api-datos/) | Ingeniería · requests | Clima de **7 ciudades LatAm** |
 | [Mini Data Warehouse](mini-data-warehouse/) | Ingeniería · SQLite | Esquema estrella + consultas SQL |
 | [Web Scraping de Precios](webscraping-precios/) | Scraping · BeautifulSoup | 20 libros y precios limpios |
-| [Consumo de Energía (E2E)](proyecto-consumo-energia/) | ETL → Análisis → Dashboard | Pipeline completo de consumo eléctrico |
+| [Consumo de Energía (E2E)](proyecto-consumo-energia/) | ETL → Análisis → Dashboard | Pipeline completo de consumo eléctrico — [ver en vivo](https://data-portafolio-juconta-dashboards-consumo-de-energia.streamlit.app) |
 | [Asistente RAG Confiable](rag-asistente-confiable/) | RAG · Evaluación | **100% recall@1** en 16 preguntas + guardrail |
 | [Automatización con Agentes de IA](agentes-ia-automatizacion/) | Agentes · Orquestación | Reintentos, fallback y monitoreo reproducibles |
 | [Web con Asistente de IA](web-integracion-ia/) | FastAPI · IA | Web con chat sobre FAQs, sin dependencias de LLM |
 | [Auditoría de Seguridad](seguridad-auditoria-basica/) | Seguridad · Análisis estático | 29 hallazgos detectados → **0 tras la corrección** |
+
+## Dashboards en vivo
+
+- **KPIs de Ventas**: <https://data-portafolio-juconta-dashboards-kpis.streamlit.app>
+- **Consumo de Energía**: <https://data-portafolio-juconta-dashboards-consumo-de-energia.streamlit.app>
 
 ## Contenido de cada proyecto
 
